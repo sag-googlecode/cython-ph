@@ -169,7 +169,10 @@ class Backend(object):
 
         cFile =  os.path.splitext(os.path.basename(sourceFile))[0]
         cFile += '.c'
-        cOutFile = os.path.splitext(os.path.basename(outputName))[0]
+        if outputName:
+            cOutFile = os.path.splitext(os.path.basename(outputName))[0]
+        else:
+            cOutFile = os.path.splitext(os.path.basename(sourceFile))[0]
 
         if embed:
             cOutFile += Backend.binaryExt()
